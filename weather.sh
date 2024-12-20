@@ -1,4 +1,4 @@
-#!/bin/bash
+%%bash
 
 # Create the weather directory if it doesn't exist
 if [ ! -d "data/weather" ]; then
