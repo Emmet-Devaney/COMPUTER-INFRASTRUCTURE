@@ -1,0 +1,16 @@
+name: Daily Weather Data - Athenry
+
+on:
+  schedule:
+    - cron: "0 10 * * *"
+
+jobs:
+  fetch-weather-data:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Download Athenry Weather Data
+        run: wget -O data/weather/weather.json https://prodapi.metweb.ie/observations/athenry/today
+
