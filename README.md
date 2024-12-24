@@ -166,3 +166,92 @@ print(df.describe())
 ---
 
 ## Project
+
+This project automates the execution of the `weather.sh` script to run daily, download new weather data, and push the updated data to my GitHub repository. The automation is achieved using GitHub Actions.
+
+---
+
+### Project Objectives
+
+1. **Automate the `weather.sh` Script**: Schedule the script to run daily and download weather data at 10am.
+
+2. **Push Updates to GitHub**: Automatically commit and push the new weather data to the repository.
+
+---
+
+### Steps
+
+#### Step 1: Create a GitHub Actions Workflow
+
+- **Description**: Define the workflow that automates the execution of the script and data management.
+
+- **Instructions**:
+  1. Navigate to your repository.
+  2. Create a folder: `.github/workflows/` (if it doesn't already exist).
+  3. Inside this folder, create a file named `weather-data.yml`.
+
+---
+
+#### Step 2: Schedule the Script to Run Daily at 10 AM
+
+- **Description**: Use `cron` to schedule the script to run daily at 10 AM. Include the `workflow_dispatch` event to enable manual triggering of the workflow for testing.
+
+```yaml
+  on:
+    schedule:
+      - cron: '0 10 * * *'  
+    workflow_dispatch:  
+```
+
+#### Step 3: Use a Linux Virtual Machine
+**Description**: Specify an Ubuntu virtual machine in the workflow to execute the tasks.
+Example:
+
+```yaml
+jobs:
+  weather-data-job:
+    runs-on: ubuntu-latest
+```
+
+#### Step 4: Clone the Repository
+**Description**: Include a step in the workflow to clone your repository.
+Example:
+```yaml
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+```
+
+#### Step 5: Execute the weather.sh Script
+**Description**: Add a step to run the weather.sh script, which downloads the weather data and saves it to the specified directory.
+```yaml
+    - name: Run weather.sh
+      run: |
+        chmod +x weather.sh 
+        ./weather.sh 
+```
+
+#### Step 6: Commit and Push Changes Back to the Repository
+**Description**: Configure the workflow to commit the downloaded weather data and push the changes back to the repository.
+```yaml
+      - name: Commit and Push Changes
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+          git add .
+          git commit -m "Update weather data"
+          git push
+```
+
+#### Step 7: Test the Workflow
+**Description**: Commit and push the weather-data.yml file to my repository. Monitor the workflow's execution in the GitHub Actions logs to ensure it runs correctly and that new data is being committed to the repository.
+
+
+#### Tools and Requirements
+- GitHub Actions: For automation.
+- Linux Virtual Machine (Ubuntu): To execute the workflow.
+- Bash Script (weather.sh): Script to download weather data.
+
+
+
+

@@ -18,7 +18,7 @@ jobs:
 
     - name: Run weather.sh
       run: |
-        chmod +x weather.sh  
+        chmod +x weather.sh 
         ./weather.sh         
 
     - name: Commit and Push Changes
