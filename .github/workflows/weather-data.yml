@@ -14,7 +14,7 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v3
+      uses: actions/checkout@v
 
     - name: Run weather.sh
       run: |
@@ -25,12 +25,8 @@ jobs:
       run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/weather/weather.json
-          git commit -m "Update weather data"
+          git add .
+          git commit -m "Update weather data" || echo "No changes to commit"
           git push
-
-         git add -A
-         git commit -m "Update weather data" || echo "No changes to commit"
-         git push
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
