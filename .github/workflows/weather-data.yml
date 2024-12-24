@@ -16,10 +16,10 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v3
 
-    - name: Download Athenry Weather Data
+    - name: Run weather.sh
       run: |
-        mkdir -p data/weather
-        wget -O data/weather/weather.json https://prodapi.metweb.ie/observations/athenry/today
+        chmod +x weather.sh  
+        ./weather.sh         
 
     - name: Commit and Push Changes
       run: |
