@@ -28,5 +28,9 @@ jobs:
           git add data/weather/weather.json
           git commit -m "Update weather data"
           git push
+
+         git add -A
+         git commit -m "Update weather data" || echo "No changes to commit"
+         git push
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
