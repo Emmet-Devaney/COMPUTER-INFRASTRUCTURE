@@ -1,4 +1,4 @@
-name: Download Weather Data
+name: Run Weather Script
 
 on:
   schedule:
