@@ -2,13 +2,14 @@
 
 ## Tasks
 
-## Task 1: Create Directory Structure
+### Task 1: Create Directory Structure
 
 Create a directory structure with a `data` folder containing two subdirectories: `timestamps` and `weather`.
 
-### Commands
+**Commands**
 ```bash
 mkdir -p data/timestamps data/weather
+
 ls data
 ```
 
@@ -18,16 +19,18 @@ ls data
 
 ---
 
-## Task 2: Append Current Date and Time
+### Task 2: Append Current Date and Time
 **Description:**  
 Append the current date and time to a file named `now.txt` in the `data/timestamps` directory, repeating the process 10 times.
 
-**Steps:**  
+**Commands**  
 ```bash
 cd data/timestamps
+
 for i in {1..10}; do
   date >> now.txt
 done
+
 more now.txt
 ```
 
@@ -39,13 +42,14 @@ more now.txt
 
 ---
 
-## Task 3: Formatting Timestamps
+### Task 3: Formatting Timestamps
 **Description:**  
 Format the date in `YYYYmmdd_HHMMSS` format and append it to a file named `formatted.txt`.
 
-**Steps:**  
+**Commands**  
 ```bash
 date "+%Y%m%d_%H%M%S" >> formatted.txt
+
 more formatted.txt
 ```
 
@@ -55,30 +59,28 @@ more formatted.txt
 
 ---
 
-## Task 4: Create Timestamped Files
+### Task 4: Create Timestamped Files
 **Description:**  
 Create empty files with names in the `YYYYmmdd_HHMMSS.txt` format.
 
-**Steps:**  
+**Commands**  
 ```bash
 touch `date "+%Y%m%d_%H%M%S"`.txt
-ls
 ```
 
 **Command Reference:**  
-- touch: Creates an empty file.
+- `touch`: Creates an empty file.
 - `date "+%Y%m%d_%H%M%S"`: Embeds the formatted timestamp into the filename.
 
 ---
 
-## Task 5: Download Today’s Weather Data
+### Task 5: Download Today’s Weather Data
 **Description:**  
 Download weather data for Athenry into a file named `weather.json` using `curl`.
 
-**Steps:**  
+**Commands**  
 ```bash
 curl -o weather.json https://prodapi.metweb.ie/observations/athenry/today
-ls
 ```
 
 **Command Reference:**  
@@ -86,27 +88,26 @@ ls
 
 ---
 
-## Task 6: Timestamp the Data
+### Task 6: Timestamp the Data
 **Description:**  
 Download weather data and save it with a timestamped filename in the `YYYYmmdd_HHMMSS.json` format.
 
-**Steps:**  
+**Commands**  
 ```bash
 curl -o `date "+%Y%m%d_%H%M%S"`.json https://prodapi.metweb.ie/observations/athenry/today
-ls
 ```
 
 **Command Reference:**  
 - `curl -o`: Downloads data.
-- `date "+%Y%m%d_%H%M%S"`: Generates a timestamped filename.
+- `date "+%Y%m%d_%H%M%S"`: Generates a timestamped filename from the link following.
 
 ---
 
-## Task 7: Automate the Process with `weather.sh`
+### Task 7: Automate the Process with `weather.sh`
 **Description:**  
 Write a bash script to automate the weather data download process and save the data with a timestamped filename.
 
-**Steps:**  
+**Commands**  
 ```bash
 if [ ! -d "data/weather" ]; then
   mkdir -p data/weather
@@ -124,9 +125,13 @@ chmod +x weather.sh
 ./weather.sh
 ```
 
+**Command Reference**
+- `chmod`: Stands for "change mode," used to change file permissions.
+- `+x`: Adds execute permissions to the file for the user, group, and others.
+
 ---
 
-## Task 8: Notebook
+### Task 8: Notebook
 **Description:**  
 Create a Jupyter Notebook named `weather.ipynb` at the root of your repository. The notebook should include:
 
@@ -136,7 +141,7 @@ A brief explanation of how Tasks 1 to 7 were completed.
 - Explain the role of each command in completing the tasks.
 
 
-## Task 9: Review and Report on Dataset
+### Task 9: Review and Report on Dataset
 **Description:**  
 In `weather.ipynb`, use the pandas library to analyze one of the weather data files downloaded with your script.
 
@@ -159,3 +164,5 @@ print(df.describe())
 3. Analysis of data from a specific file.
 
 ---
+
+## Project
