@@ -193,7 +193,6 @@ This project automates the execution of the `weather.sh` script to run daily, do
 ---
 
 #### Step 2: Schedule the Script to Run Daily at 10 AM
-
 - **Description**: Use `cron` to schedule the script to run daily at 10 AM. Include the `workflow_dispatch` event to enable manual triggering of the workflow for testing.
 
 ```yaml
@@ -204,18 +203,20 @@ This project automates the execution of the `weather.sh` script to run daily, do
 ```
 
 #### Step 3: Use a Linux Virtual Machine
-**Description**: Specify an Ubuntu virtual machine in the workflow to execute the tasks.
-Example:
+**Description**: Specify an Ubuntu virtual machine in the workflow to execute the tasks, and enable permissions for the workflow to edit the repository.
 
 ```yaml
 jobs:
-  weather-data-job:
+  fetch-weather-data:
     runs-on: ubuntu-latest
+
+    permissions:
+      contents: write  
+
 ```
 
 #### Step 4: Clone the Repository
 **Description**: Include a step in the workflow to clone your repository.
-Example:
 ```yaml
     steps:
       - name: Checkout Repository
@@ -252,6 +253,29 @@ Example:
 - Linux Virtual Machine (Ubuntu): To execute the workflow.
 - Bash Script (weather.sh): Script to download weather data.
 
+## References
 
+1. Athenry weather station data: https://prodapi.metweb.ie/observations/athenry/today
 
+2. Today's weather, Athenry, data.gov.ie: https://data.gov.ie/dataset/todays-weather-athenry
+
+4. Create a directory: https://www.w3schools.com/python/ref_os_mkdir.asp
+
+5. more command: https://www.geeksforgeeks.org/more-command-in-linux-with-examples/
+
+6. wget vs curl: https://www.warp.dev/terminus/curl-vs-wget
+
+7. chmod-x: https://www.geeksforgeeks.org/what-does-chmod-x-do-and-how-to-use-it/
+
+8. git commands: https://github.com/marketplace/actions/git-auto-commit
+
+9. cron: https://crontab.guru/
+
+10. checkout: https://github.com/actions/checkout
+
+11. secrets.GITHUB_TOKEN: https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions
+
+12. jobs: https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/store-information-in-variables
+
+13. Workflow Syntax: https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions
 
