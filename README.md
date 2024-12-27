@@ -1,5 +1,15 @@
 # COMPUTER-INFRASTRUCTURE
 
+
+## My Computer Infrastructure Repository
+
+This repository was created as part of the Computer Infrastructure - Semester 2 module, Higher Diploma in Science in Data Analytics at ATU. 
+
+## About
+This repository contains my submissions for the Computer Infrastructure module, demonstrating what I have learned so far in the course, as well as the Tasks and Project assigned by my lecturer.
+
+---
+
 ## Tasks
 
 ### Task 1: Create Directory Structure
@@ -163,6 +173,8 @@ print(df.describe())
 
 3. Analysis of data from a specific file.
 
+I used `pandas.read_json()` to quickly load and analyze the weather data. The dataset provides useful information about daily weather conditions for various applications.
+
 ---
 
 ## Project
@@ -220,7 +232,7 @@ jobs:
 ```yaml
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 ```
 
 #### Step 5: Execute the weather.sh Script
@@ -248,11 +260,6 @@ jobs:
 **Description**: Commit and push the weather-data.yml file to my repository. Monitor the workflow's execution in the GitHub Actions logs to ensure it runs correctly and that new data is being committed to the repository.
 
 
-#### Tools and Requirements
-- GitHub Actions: For automation.
-- Linux Virtual Machine (Ubuntu): To execute the workflow.
-- Bash Script (weather.sh): Script to download weather data.
-
 ## References
 
 1. Athenry weather station data: https://prodapi.metweb.ie/observations/athenry/today
@@ -279,3 +286,6 @@ jobs:
 
 13. Workflow Syntax: https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions
 
+# Author
+
+## Emmet devaney - Student of the Atlantic Technological University
